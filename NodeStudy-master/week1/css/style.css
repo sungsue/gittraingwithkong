@@ -1,0 +1,8 @@
+.pop_layer {width:300px;height:350px;border:1px solid #dfdfdf;}
+.pop_layer header {border-bottom:1px solid #dddddd;padding:10px 20px;text-align:center;}
+.pop_layer main {padding:10px;}
+.pop_layer main div {padding-top:20px;}
+.pop_layer main div .label1 {display:inline-block;width:100px;}
+.pop_layer main div .input1 {display:inline-block;width:160px;}
+.pop_layer main div.align_center {text-align:center;}
+.pop_layer main div.align_center textarea {resize:none;}

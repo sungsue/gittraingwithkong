@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node Form Test</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <div class="pop_layer">
+        <header> 나의 메모 222  2222 </header>
+        <main>
+            <form action="http://localhost:3000/" method="post">
+                <div><label for="name" class="label1">작성자:</label> <input type="text" id="name" name="name" class="input1"/></div>
+                <div><label for="date" class="label1">작성일시:</label> <input type="datetime-local" id="date" name="date" class="input1"/></div>
+                <div><label for="content">내용 </label></div>
+                <div class="align_center"><textarea id="content" name="content" rows="5" cols="36"></textarea></div>
+                <div class="align_center">
+
+
+                    
+                    <input type="submit" value="저장">
+                    <input type="button" value="닫기" onclick="parent.window.open('about:blank','_self').close();">
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
