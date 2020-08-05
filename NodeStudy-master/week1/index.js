@@ -26,29 +26,98 @@ const app = http.createServer(function(request , response){
         response.writeHead(200);
 
         let temp = `
-    
         <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <title>Node Form Test</title>
-            <link rel="stylesheet" href="./css/style.css" />
-        </head>
-        <body>
-            <div class="pop_layer">
-                <header> 나의 메모 </header>
-                <main>
-                    <div><label for="name" class="label1">작성자:</label> ${paramData.name} </div>
-                    <div><label for="date" class="label1">작성일시:</label> ${paramData.date} </div>
-                    <div><label for="content">내용 </label></div>
-                    <div class="align_center"><textarea id="content" name="content" rows="5" cols="36"> ${paramData.content}</textarea></div>
-                    <div class="align_center">
-                        정상적으로 전송되었습니다.
-                    </div>
-                </main>
-            </div>
-        </body>
-        </html>
+<html>
+<head>
+    <title>CALCULATOR TEST</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px 10px;
+            text-align: center;
+        }
+        input {
+            text-align: right;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="3">
+                <input type="text" id="display">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="text" id="result">
+            </td>
+        </tr>
+        <tr>
+            <td Onclick="toBinary">Binary</td>
+            <td Onclick="toOctal">Octal</td>
+            <td Onclick="toHex()">Hex</td>
+        </tr>
+        <tr>
+            <td onclick="add(7)">7</td>
+            <td onclick="add(8)">8</td>
+            <td onclick="add(9)">9</td>
+        </tr>
+        <tr>
+            <td onclick="add(4)">4</td>
+            <td onclick="add(5)">5</td>
+            <td onclick="add(6)">6</td>
+        </tr>
+        <tr>
+            <td onclick="add(1)">1</td>
+            <td onclick="add(2)">2</td>
+            <td onclick="add(3)">3</td>
+        </tr>
+        <tr>
+            <td onclick="calculate()">=</td>
+            <td onclick="add(0)">0</td>
+            <td onclick="reset()">AC</td>
+        </tr>
+    </table>
+    <script>
+        function add(char) {
+            var display = document.getElementById('display');
+            display.value = display.value +char;
+        }
+        function toBinary() {
+            var display = document.getElementById('display');
+        }
+        function toHex() {
+            var display = document.getElementById('display');
+            document.getElementById('result').value = convertToHex(display);
+        }
+        function convertToHex(str) {
+            var hex = '';
+                for(var i=0;i<str.length;i++) {
+                    hex += ''+str.charCodeAt(i).toString(16);
+                  }
+              return hex;
+        }
+        function toOctal() {
+            var display = document.getElementById('display');
+            
+        }        
+        function calculate() {
+            var display = document.getElementById('display');
+            var result = eval(display.value);
+            document.getElementById('result').value = result;
+        }
+        function reset() {
+            document.getElementById('display').value = "";
+            document.getElementById('result').value = "";
+        }
+    </script>
+</body>
+</html>
+
         `;
 
 
