@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>CALCULATOR TEST</title>
     <style>
         table {
             border-collapse: collapse;
         }
+
         td {
             padding: 5px 10px;
             text-align: center;
         }
+
         input {
             text-align: right;
             border: none;
         }
     </style>
 </head>
+
 <body>
     <table border="1">
         <tr>
@@ -57,43 +61,55 @@
     <script>
         function add(char) {
             var display = document.getElementById('display');
-            display.value = display.value +char;
+            display.value = display.value + char;
         }
         function toBinary() {
             var display = document.getElementById('display');
-            document.getElementById('result').value = convertToBinary(display.value);
+            document.getElementById('result').value = convertTo(display.value, 2);
         }
         function toOctal() {
             var display = document.getElementById('display');
-            document.getElementById('result').value = convertToOctal(display.value);
+            document.getElementById('result').value = convertTo(display.value, 8);
         }
         function toHex() {
             var display = document.getElementById('display');
-            document.getElementById('result').value = convertToHex(display.value);
+            document.getElementById('result').value = convertTo(display.value, 16);
         }
 
         function convertToBinary(str) {
             var hex = '';
-                for(var i=0;i<str.length;i++) {
-                    hex += ''+str.charCodeAt(i).toString(2);
-                  }
-              return hex;
+            for (var i = 0; i < str.length; i++) {
+                alert(str.charCodeAt(i));
+                hex += '' + str.charCodeAt(i).toString(2);
+            }
+            return hex;
         }
 
         function convertToOctal(str) {
             var hex = '';
-                for(var i=0;i<str.length;i++) {
-                    hex += ''+str.charCodeAt(i).toString(8);
-                  }
-              return hex;
+            for (var i = 0; i < str.length; i++) {
+                hex += '' + str.charCodeAt(i).toString(8);
+            }
+            return hex;
         }
 
         function convertToHex(str) {
             var hex = '';
-                for(var i=0;i<str.length;i++) {
-                    hex += ''+str.charCodeAt(i).toString(16);
-                  }
-              return hex;
+            for (var i = 0; i < str.length; i++) {
+                hex += '' + str.charCodeAt(i).toString(16);
+            }
+            return hex;
+        }
+
+        function convertTo(inputNumberString, target){//inputNumberString = 입력 문자, target = 변경하려는 진수
+
+            //Number() 사용 안할 경우 ascii코드값을 숫자로 변환해 자릿수에 맞게 더해줌
+            var stringToDecimal = Number(inputNumberString);//'숫자 문자열' -> 숫자
+            var converted = stringToDecimal.toString(target);//'숫자' -> 특정 진수 문자열
+
+            //Number(inputNumberString).toString(16);
+
+            return converted;
         }
 
         function calculate() {
@@ -107,4 +123,5 @@
         }
     </script>
 </body>
+
 </html>
